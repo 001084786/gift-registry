@@ -6,7 +6,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="border-b p-4">
+        <header className="shadow p-4">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Left */}
                 <a href="/" className="font-bold text-lg">Gift Registry</a>

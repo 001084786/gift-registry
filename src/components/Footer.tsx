@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <footer className="border-b p-4 flex items-center">
+        <footer className="p-4 flex items-center">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
                 <h6>Footer</h6>
             </div>
