@@ -1,40 +1,31 @@
-import { useEffect, useState } from "react";
-import { createClient } from "@supabase/supabase-js";
-import type { Database } from "../database.types"
+// src/App.tsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import GiftsPage from './pages/GiftsPage';
+import RootLayout from './layouts/AppLayout';
 
-const supabase = createClient<Database>(
-    import.meta.env.VITE_SUPABASE_URL as string,
-    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string
-);
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* 
+           This defines the layout for the root route ("/").
+           Anything at "/" will be inside RootLayout, 
+           and HomePage component will render where <Outlet /> was.
+        */}
+        <Route element={<RootLayout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gifts" element={<GiftsPage />} />
+          
+          {/* You can have other routes that share the same layout */}
+          <Route path="/about" element={<HomePage />} /> 
+        </Route>
 
-function App() {
-    const [gifts, setGifts] = useState<Database["public"]["Tables"]["gifts"]["Row"][]>([]);
-
-    useEffect(() => {
-        fetchGifts();
-    }, []);
-
-    async function fetchGifts() {
-        const { data, error } = await supabase
-            .from("gifts")
-            .select("*");
-        
-        if (error) {
-            console.error(error);
-            return;
-        }
-        setGifts( data || []);
-    }
-
-    return (
-        <ul>
-            {gifts.map((gift) => (
-                <li key={gift.id.toString()}>
-                    {gift.title} - {gift.description}
-                </li>
-            ))}
-        </ul>
-    )
+        {/* 
+           Optional: Routes that don't need a header/footer (e.g., login screen)
+        */}
+        {/* <Route path="/login" element={<LoginPage />} /> */}
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App;
