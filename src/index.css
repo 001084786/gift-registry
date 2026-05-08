@@ -63,6 +63,10 @@
   box-sizing: border-box;
 }
 
+header, footer {
+    background-color: var(--accent);
+}
+
 body {
   margin: 0;
 }

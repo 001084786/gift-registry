@@ -1,14 +1,16 @@
 // src/layouts/RootLayout.tsx
-import { Outlet } from 'react-router-dom'; // Import Outlet
+import { Outlet } from 'react-router-dom';
 import Header from '../components/Header';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 
 export default function RootLayout() {
   return (
-    <div className="layout">
+    <div className="flex flex-col min-h-screen layout">
       <Header /> 
-      <Outlet />
-      {/* <Footer /> */}
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
