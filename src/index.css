@@ -64,7 +64,7 @@
 }
 
 header, footer {
-    background-color: var(--accent);
+    background-color: var(--accent-bg);
 }
 
 body {
