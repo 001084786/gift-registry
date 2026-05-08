@@ -1,8 +1,8 @@
 // src/App.tsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import GiftsPage from './pages/GiftsPage';
 import RootLayout from './layouts/AppLayout';
+import AboutPage from './pages/AboutPage';
 
 export default function App() {
   return (
@@ -15,10 +15,10 @@ export default function App() {
         */}
         <Route element={<RootLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/gifts" element={<GiftsPage />} />
+          <Route path="/home" element={<HomePage />} />
           
           {/* You can have other routes that share the same layout */}
-          <Route path="/about" element={<HomePage />} /> 
+          <Route path="/about" element={<AboutPage />} /> 
         </Route>
 
         {/* 
