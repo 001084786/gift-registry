@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "../../database.types"
+import GiftCard from "../components/GiftCard";
 
 const supabase = createClient<Database>(
     import.meta.env.VITE_SUPABASE_URL as string,
@@ -27,13 +28,12 @@ function HomePage() {
     }
 
     return (
-        <ul>
-            {gifts.map((gift) => (
-                <li key={gift.id.toString()}>
-                    {gift.title} - {gift.description}
-                </li>
-            ))}
-        </ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+            {Array.from({length: 15}, (_, i) => 
+            gifts.map((gift) => (
+                <GiftCard key={gift.id.toString()} gift={gift} />
+            )))}
+        </div>
     )
 }
 
