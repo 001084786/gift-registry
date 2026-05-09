@@ -6,9 +6,9 @@ import AboutPage from './pages/AboutPage';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/gift-registry">
       <Routes>
-        <Route path="/gift-registry" element={<RootLayout />}>
+        <Route element={<RootLayout />}>
           <Route index element={<HomePage />} />
           <Route path="home" element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
