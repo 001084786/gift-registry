@@ -3,7 +3,10 @@ import { Menu, X } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
-    const menuItems = ['Home', 'About'];
+    const menuItems = [
+        { label: 'Home', path: '/home' },
+        { label: 'About', path: '/about' },
+    ];
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
@@ -15,7 +18,7 @@ const Header = () => {
                 {/* Centre - Desktop Nav Only */}
                 <nav className="hidden md:flex items-center space-x-8">
                 {menuItems.map((item, index) => (
-                    <NavLink key={index} to={`/${item}`} className="hover:underline">{item}</NavLink>
+                    <NavLink key={index} to={item.path} className="hover:underline">{item.label}</NavLink>
                 ))}
                 </nav>
 
@@ -41,13 +44,13 @@ const Header = () => {
             <div className="md:hidden border-t pt-4">
                 <nav className="flex flex-col space-y-2">
                     {menuItems.map((item, index) => (
-                            <NavLink
-                                key={index}
-                                to={`/${item}`}
-                                onClick={() => setIsMenuOpen(false)}
-                                className="px-4 py-2 hover:bg-purple-600/10">
-                                {item}
-                            </NavLink>
+                        <NavLink
+                            key={index}
+                            to={item.path}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="px-4 py-2 hover:bg-purple-600/10">
+                            {item.label}
+                        </NavLink>
                     ))}
                 </nav>
             </div>
