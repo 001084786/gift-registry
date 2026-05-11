@@ -32,7 +32,7 @@ function HomePage() {
             <div className="h-20 flex justify-center items-center">
                 <h1>Filter Section</h1>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4 mx-4 sm:mx-8 lg:mx-10 xl:mx-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-4 mx-4 sm:mx-8 lg:mx-10 xl:mx-20">
                 {[...gifts]
                     .sort((a, b) => a.id - b.id)
                     .map((gift) => (
